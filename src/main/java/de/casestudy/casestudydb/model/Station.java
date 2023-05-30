@@ -6,6 +6,7 @@ import lombok.Data;
 @Data
 @XmlRootElement(name = "station")
 public class Station {
-    private String shortcode;
+    private Tracks tracks;
 
 }
+
