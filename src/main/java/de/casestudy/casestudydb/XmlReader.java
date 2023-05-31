@@ -10,22 +10,29 @@ import org.springframework.stereotype.Component;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
+import java.util.Objects;
 
 @NoArgsConstructor
 @Component
 public class XmlReader {
 
-    public Station readFile() {
-        try {
-            File xmlFile = new ClassPathResource("FF_2017-12-01_10-47-17.xml").getFile();
-
-            JAXBContext jaxbContext = JAXBContext.newInstance(Station.class);
-            Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
-
-            return (Station) jaxbUnmarshaller.unmarshal(xmlFile);
-        } catch (IOException | JAXBException e) {
-            e.printStackTrace();
-        }
+    public Station readFile(String ril100) {
+        ClassLoader classLoader = getClass().getClassLoader();
+        File folder = new File(Objects.requireNonNull(classLoader.getResource(".")).getFile());
+        File[] files = folder.listFiles((dir, name) -> name.endsWith(".xml"));
+        if (files != null) {
+            for (File xmlFile : files) {
+                if (xmlFile.getName().startsWith(ril100)) {
+                    try {
+                        JAXBContext jaxbContext = JAXBContext.newInstance(Station.class);
+                        Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+                        return (Station) jaxbUnmarshaller.unmarshal(xmlFile);
+                    } catch (JAXBException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+            }}
         return null;
+        }
     }
-}

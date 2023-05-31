@@ -13,7 +13,7 @@ public class DBService {
     private final XmlReader xmlReader;
 
     public List<String> getShortCode(String ril100, int trainNumber, int waggonNumber) {
-        Station station = xmlReader.readFile();
+        Station station = xmlReader.readFile(ril100);
 
         List<Track> trackList = station.getTracks().getTrack();
 
@@ -25,7 +25,13 @@ public class DBService {
                     List<Waggon> waggonList = train.getWaggons().getWaggon();
                     for (Waggon waggon : waggonList) {
                         if (waggon.getNumber() == waggonNumber) {
-                            result.add(waggon.getSections().getIdentifier());
+                            List<String> identifierList = waggon.getSections().getIdentifier();
+                            if (identifierList.size() == 2) {
+                                result.add(identifierList.get(0) + ", " + identifierList.get(1));
+                            }
+                            else {
+                                result.add(identifierList.get(0));
+                            }
                         }
                     }
 
