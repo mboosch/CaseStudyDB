@@ -8,5 +8,3 @@ import java.util.List;
 public class Waggons {
     private List<Waggon> waggon;
 }
-
-

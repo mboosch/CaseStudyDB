@@ -8,5 +8,3 @@ import java.util.List;
 public class Trains {
     private List<Train> train;
 }
-
-

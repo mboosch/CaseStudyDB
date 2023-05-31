@@ -12,7 +12,7 @@ import java.util.List;
 public class DBService {
     private final XmlReader xmlReader;
 
-    public List<String> getShortCode(int trainNumber, int waggonNumber) {
+    public List<String> getShortCode(String ril100, int trainNumber, int waggonNumber) {
         Station station = xmlReader.readFile();
 
         List<Track> trackList = station.getTracks().getTrack();
@@ -35,4 +35,16 @@ public class DBService {
         return result;
     }
 }
+
+
+// Zugnummer:
+//station / tracks / track[] / trains / train[] / trainnumbers / trainnumber
+//
+//Waggonnumer:
+//station / tracks / track[] / trains / train[] / waggons / waggon[] / number
+//
+//Gleisabschnitt:
+//
+//
+//station / tracks / track[] / trains / train[] / waggons / waggon / sections / identifier
 

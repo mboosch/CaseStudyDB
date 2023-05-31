@@ -17,7 +17,7 @@ public class XmlReader {
 
     public Station readFile() {
         try {
-            File xmlFile = new ClassPathResource("ABST_2017-12-07_12-29-38.xml").getFile();
+            File xmlFile = new ClassPathResource("FF_2017-12-01_10-47-17.xml").getFile();
 
             JAXBContext jaxbContext = JAXBContext.newInstance(Station.class);
             Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();

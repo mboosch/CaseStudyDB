@@ -7,6 +7,4 @@ import lombok.Data;
 @XmlRootElement(name = "station")
 public class Station {
     private Tracks tracks;
-
 }
-
