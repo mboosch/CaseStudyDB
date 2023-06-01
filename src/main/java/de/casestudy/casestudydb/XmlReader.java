@@ -4,14 +4,11 @@ import de.casestudy.casestudydb.model.Station;
 import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.JAXBException;
 import jakarta.xml.bind.Unmarshaller;
-import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.core.io.Resource;
-import org.springframework.core.io.ResourceLoader;
 import org.springframework.core.io.support.ResourcePatternResolver;
 import org.springframework.stereotype.Component;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.Objects;
 
@@ -25,7 +22,7 @@ public class XmlReader {
         try {
             Resource[] resources = resourcePatternResolver.getResources("classpath*:*.xml");
             for (Resource xmlFile : resources) {
-                if (Objects.requireNonNull(xmlFile.getFilename()).startsWith(ril100)) {
+                if (Objects.requireNonNull(xmlFile.getFilename()).startsWith(ril100+"_")) {
                     try {
                         JAXBContext jaxbContext = JAXBContext.newInstance(Station.class);
                         Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();

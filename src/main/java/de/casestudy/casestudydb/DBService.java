@@ -15,9 +15,9 @@ public class DBService {
     public List<String> getTrackSection(String ril100, int trainNumber, int waggonNumber) {
         Station station = xmlReader.readFile(ril100);
 
-        List<Track> trackList = station.getTracks().getTrack();
-
         List<String> result = new ArrayList<>();
+
+        List<Track> trackList = station.getTracks().getTrack();
         for (Track track : trackList) {
             List<Train> trainList = track.getTrains().getTrain();
             for (Train train : trainList) {
