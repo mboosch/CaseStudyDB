@@ -5,34 +5,39 @@ import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.JAXBException;
 import jakarta.xml.bind.Unmarshaller;
 import lombok.NoArgsConstructor;
-import org.springframework.core.io.ClassPathResource;
+import lombok.RequiredArgsConstructor;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.ResourceLoader;
+import org.springframework.core.io.support.ResourcePatternResolver;
 import org.springframework.stereotype.Component;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.URL;
 import java.util.Objects;
 
-@NoArgsConstructor
 @Component
+@RequiredArgsConstructor
 public class XmlReader {
+    private final ResourcePatternResolver resourcePatternResolver;
 
     public Station readFile(String ril100) {
-        ClassLoader classLoader = getClass().getClassLoader();
-        File folder = new File(Objects.requireNonNull(classLoader.getResource(".")).getFile());
-        File[] files = folder.listFiles((dir, name) -> name.endsWith(".xml"));
-        if (files != null) {
-            for (File xmlFile : files) {
-                if (xmlFile.getName().startsWith(ril100)) {
+
+        try {
+            Resource[] resources = resourcePatternResolver.getResources("classpath*:*.xml");
+            for (Resource xmlFile : resources) {
+                if (Objects.requireNonNull(xmlFile.getFilename()).startsWith(ril100)) {
                     try {
                         JAXBContext jaxbContext = JAXBContext.newInstance(Station.class);
                         Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
-                        return (Station) jaxbUnmarshaller.unmarshal(xmlFile);
+                        return  (Station) jaxbUnmarshaller.unmarshal(xmlFile.getInputStream());
                     } catch (JAXBException e) {
                         throw new RuntimeException(e);
                     }
                 }
-            }}
-        return null;
+            }
+        } catch (IOException ex) {
+            throw new RuntimeException(ex);
         }
+        return null;
     }
+}
