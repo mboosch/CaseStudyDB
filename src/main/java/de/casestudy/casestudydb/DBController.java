@@ -18,6 +18,6 @@ public class DBController {
             @PathVariable("ril100") String ril100,
             @PathVariable("trainNumber") int trainNumber,
             @PathVariable("waggonNumber") int waggonNumber) {
-        return new Response(dbService.getTrackSection(ril100, trainNumber, waggonNumber));
+        return new Response(dbService.getTrackSections(ril100, trainNumber, waggonNumber));
     }
 }
