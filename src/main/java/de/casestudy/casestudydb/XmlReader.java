@@ -35,6 +35,6 @@ public class XmlReader {
         } catch (IOException ex) {
             throw new RuntimeException(ex);
         }
-        return null;
+        throw new XmlFileNotFoundException("Couldn't find matching XML-file. Try using a different ril100.");
     }
 }
