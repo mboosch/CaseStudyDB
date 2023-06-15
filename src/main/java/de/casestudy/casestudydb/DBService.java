@@ -15,23 +15,28 @@ public class DBService {
     private final XmlReader xmlReader;
 
     public List<String> getTrackSections(String ril100, int trainNumber, int waggonNumber) {
-
         Station station = xmlReader.readFile(ril100);
-        List<Waggon> waggonList = getTrain(trainNumber, station);
-        return getIdentifier(waggonList, waggonNumber);
+        List<Train> trains = getTrains(trainNumber, station);
+        List<Waggon> waggons = getWaggons(trains, waggonNumber);
+        return getIdentifiers(waggons);
     }
 
-    public List<Waggon> getTrain(int trainNumber, Station station) {
+    public List<Train> getTrains(int trainNumber, Station station) {
         return station.getTracks().getTrack().stream()
                 .flatMap(track -> track.getTrains().getTrain().stream())
                 .filter(train -> train.getTrainNumbers().getTrainNumber() == trainNumber)
-                .flatMap(train -> train.getWaggons().getWaggon().stream())
                 .collect(Collectors.toList());
     }
 
-    public List<String> getIdentifier(List<Waggon> waggonList, int waggonNumber) {
-        return waggonList.stream()
+    public List<Waggon> getWaggons(List<Train> trains, int waggonNumber) {
+        return trains.stream()
+                .flatMap(train -> train.getWaggons().getWaggon().stream())
                 .filter(waggon -> waggon.getNumber() == waggonNumber)
+                .collect(Collectors.toList());
+    }
+
+    public List<String> getIdentifiers(List<Waggon> waggons) {
+        return waggons.stream()
                 .flatMap(waggon -> {
                     List<String> identifierList = waggon.getSections().getIdentifier();
                     Stream<String> stream;
