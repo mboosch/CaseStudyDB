@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("station/")
-public class DBController {
-    private final DBService dbService;
+public class Controller {
+    private final Service dbService;
 
     @GetMapping("/{ril100}/train/{trainNumber}/waggon/{waggonNumber}")
     public Response getTrackSection(

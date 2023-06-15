@@ -1,4 +1,4 @@
-package de.casestudy.casestudydb;
+package de.casestudy.casestudydb.exceptions;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,6 +12,8 @@ public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionH
     @ExceptionHandler(XmlFileNotFoundException.class)
     protected ResponseEntity<Object> handleXmlFileNotFoundException(XmlFileNotFoundException ex) {
         HttpStatus status = HttpStatus.NOT_FOUND;
-        return new ResponseEntity<>(ex.getMessage(), status);
+        ErrorResponse errorResponse = new ErrorResponse(status.value(), ex.getMessage());
+        return new ResponseEntity<>(errorResponse, status);
+
     }
 }

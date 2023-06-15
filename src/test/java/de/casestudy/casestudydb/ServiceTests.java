@@ -8,13 +8,13 @@ import java.util.List;
 
 import static org.mockito.Mockito.*;
 
-public class DBServiceTest {
+public class ServiceTests {
     private final XmlReader xmlReader = mock(XmlReader.class);
-    private final DBService testDbService = spy(new DBService(xmlReader));
+    private final Service testDbService = spy(new Service(xmlReader));
 
-    Station testStation = StationTestDataFactory.createStation();
-    List<Train> trainListForSpecificTrainNumber = StationTestDataFactory.createTrainByTrainNumber(2310);
-    List<Waggon> waggonListWithOneIdentifier = StationTestDataFactory.createWaggonByWaggonNumber(3, 1);
+    Station testStation = TestDataFactory.createStation();
+    List<Train> trainListForSpecificTrainNumber = TestDataFactory.createTrainByTrainNumber(2310);
+    List<Waggon> waggonListWithOneIdentifier = TestDataFactory.createWaggonByWaggonNumber(3, 1);
 
     @Test
     public void getTrackSectionsShouldReturnCorrectSectionsForExistingParameters() {
@@ -69,7 +69,7 @@ public class DBServiceTest {
     @Test
     public void getIdentifiersShouldReturnCorrectIdentifierForTwoIdentifierFound() {
         List<String> expected = List.of("C, D");
-        List<String> actual = testDbService.getIdentifiers(StationTestDataFactory.createWaggonByWaggonNumber(3, 2));
+        List<String> actual = testDbService.getIdentifiers(TestDataFactory.createWaggonByWaggonNumber(3, 2));
         Assertions.assertEquals(expected, actual);
     }
 }

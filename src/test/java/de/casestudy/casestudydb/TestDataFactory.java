@@ -4,7 +4,7 @@ import de.casestudy.casestudydb.model.*;
 
 import java.util.List;
 
-public class StationTestDataFactory {
+public class TestDataFactory {
 
     public static Station createStation() {
         Track track = new Track(createTrainList());

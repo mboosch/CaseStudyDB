@@ -1,5 +1,6 @@
 package de.casestudy.casestudydb;
 
+import de.casestudy.casestudydb.exceptions.XmlFileNotFoundException;
 import de.casestudy.casestudydb.model.Station;
 import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.JAXBException;
