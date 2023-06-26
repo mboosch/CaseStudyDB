@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>de.train-schedules-reader</groupId>
-    <artifactId>CaseStudyDB</artifactId>
+    <artifactId>TrainSchedulesReader</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>TrainSchedulesReader</name>
     <description>TrainSchedulesReader</description>
