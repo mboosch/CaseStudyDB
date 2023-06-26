@@ -8,11 +8,11 @@
         <version>3.1.0</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>de.case-study</groupId>
+    <groupId>de.train-schedules-reader</groupId>
     <artifactId>CaseStudyDB</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>CaseStudyDB</name>
-    <description>CaseStudyDB</description>
+    <name>TrainSchedulesReader</name>
+    <description>TrainSchedulesReader</description>
     <properties>
         <java.version>17</java.version>
     </properties>

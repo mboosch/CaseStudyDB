@@ -3,14 +3,15 @@ package de.casestudy.casestudydb;
 
 import de.casestudy.casestudydb.model.*;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 @RequiredArgsConstructor
-@org.springframework.stereotype.Service
-public class Service {
+@Service
+public class TrainService {
     private final XmlReader xmlReader;
 
     public List<String> getTrackSections(String ril100, int trainNumber, int waggonNumber) {
