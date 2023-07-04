@@ -1,7 +1,8 @@
+package de.trainschedules.trainschedules;
 
-package de.casestudy.casestudydb;
-
-import de.casestudy.casestudydb.model.*;
+import de.trainschedules.trainschedules.model.Station;
+import de.trainschedules.trainschedules.model.Train;
+import de.trainschedules.trainschedules.model.Waggon;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

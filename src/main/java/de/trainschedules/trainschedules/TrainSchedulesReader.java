@@ -1,4 +1,4 @@
-package de.casestudy.casestudydb;
+package de.trainschedules.trainschedules;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

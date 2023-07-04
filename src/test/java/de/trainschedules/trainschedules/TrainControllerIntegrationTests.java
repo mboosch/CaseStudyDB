@@ -1,6 +1,6 @@
-package de.casestudy.casestudydb;
+package de.trainschedules.trainschedules;
 
-import de.casestudy.casestudydb.exceptions.XmlFileNotFoundException;
+import de.trainschedules.trainschedules.exceptions.XmlFileNotFoundException;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;

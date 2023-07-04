@@ -1,6 +1,6 @@
-package de.casestudy.casestudydb;
+package de.trainschedules.trainschedules;
 
-import de.casestudy.casestudydb.model.Response;
+import de.trainschedules.trainschedules.model.Response;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

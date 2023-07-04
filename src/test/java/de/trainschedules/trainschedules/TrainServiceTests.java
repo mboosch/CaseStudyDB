@@ -1,20 +1,23 @@
-package de.casestudy.casestudydb;
+package de.trainschedules.trainschedules;
 
-import de.casestudy.casestudydb.model.*;
+import de.trainschedules.trainschedules.model.Station;
+import de.trainschedules.trainschedules.model.Train;
+import de.trainschedules.trainschedules.model.Waggon;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 
 import java.util.List;
 
 import static org.mockito.Mockito.*;
 
 public class TrainServiceTests {
-    private final XmlReader xmlReader = mock(XmlReader.class);
+    private final XmlReader xmlReader = Mockito.mock(XmlReader.class);
     private final TrainService testDbTrainService = spy(new TrainService(xmlReader));
 
-    Station testStation = TestDataFactory.createStation();
-    List<Train> trainListForSpecificTrainNumber = TestDataFactory.createTrainByTrainNumber(2310);
-    List<Waggon> waggonListWithOneIdentifier = TestDataFactory.createWaggonByWaggonNumber(3, 1);
+    Station testStation = de.trainschedules.trainschedule.TestDataFactory.createStation();
+    List<Train> trainListForSpecificTrainNumber = de.trainschedules.trainschedule.TestDataFactory.createTrainByTrainNumber(2310);
+    List<Waggon> waggonListWithOneIdentifier = de.trainschedules.trainschedule.TestDataFactory.createWaggonByWaggonNumber(3, 1);
 
     @Test
     public void getTrackSectionsShouldReturnCorrectSectionsForExistingParameters() {
@@ -69,7 +72,7 @@ public class TrainServiceTests {
     @Test
     public void getIdentifiersShouldReturnCorrectIdentifierForTwoIdentifierFound() {
         List<String> expected = List.of("C, D");
-        List<String> actual = testDbTrainService.getIdentifiers(TestDataFactory.createWaggonByWaggonNumber(3, 2));
+        List<String> actual = testDbTrainService.getIdentifiers(de.trainschedules.trainschedule.TestDataFactory.createWaggonByWaggonNumber(3, 2));
         Assertions.assertEquals(expected, actual);
     }
 }

@@ -1,5 +1,4 @@
-package de.casestudy.casestudydb.model;
-
+package de.trainschedules.trainschedules.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,6 +9,6 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Tracks {
-    private List<Track> track;
+public class Trains {
+    private List<Train> train;
 }

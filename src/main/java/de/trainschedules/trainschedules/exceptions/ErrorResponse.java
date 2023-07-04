@@ -1,4 +1,4 @@
-package de.casestudy.casestudydb.exceptions;
+package de.trainschedules.trainschedules.exceptions;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

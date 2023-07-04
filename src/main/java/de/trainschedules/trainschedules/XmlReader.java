@@ -1,7 +1,7 @@
-package de.casestudy.casestudydb;
+package de.trainschedules.trainschedules;
 
-import de.casestudy.casestudydb.exceptions.XmlFileNotFoundException;
-import de.casestudy.casestudydb.model.Station;
+import de.trainschedules.trainschedules.exceptions.XmlFileNotFoundException;
+import de.trainschedules.trainschedules.model.Station;
 import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.JAXBException;
 import jakarta.xml.bind.Unmarshaller;

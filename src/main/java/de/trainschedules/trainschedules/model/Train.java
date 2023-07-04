@@ -1,4 +1,4 @@
-package de.casestudy.casestudydb.model;
+package de.trainschedules.trainschedules.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

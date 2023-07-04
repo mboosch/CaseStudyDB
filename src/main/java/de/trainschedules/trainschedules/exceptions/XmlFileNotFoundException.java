@@ -1,4 +1,4 @@
-package de.casestudy.casestudydb.exceptions;
+package de.trainschedules.trainschedules.exceptions;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

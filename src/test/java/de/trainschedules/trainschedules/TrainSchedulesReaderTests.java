@@ -1,4 +1,4 @@
-package de.casestudy.casestudydb;
+package de.trainschedules.trainschedules;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

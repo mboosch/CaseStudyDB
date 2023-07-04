@@ -1,6 +1,7 @@
-package de.casestudy.casestudydb;
+package de.trainschedules.trainschedule;
 
-import de.casestudy.casestudydb.model.*;
+
+import de.trainschedules.trainschedules.model.*;
 
 import java.util.List;
 
